@@ -1,0 +1,80 @@
+while (true)
+{
+    Console.Clear();
+    Console.WriteLine("wlcome to my App");   // منوی ماشین حساب 
+    Console.WriteLine("1[+].ADD");    //جمع
+    Console.WriteLine("2[-].SUBTRACT"); //منها
+    Console.WriteLine("3[*].MULTIPLY"); // ضرب
+    Console.WriteLine("4[/].DIVIDE"); // تقسیم
+    Console.WriteLine("5[%].REMAINDER");//باقیمانده
+    Console.WriteLine("6.factorial");//فاکتوریل
+    Console.WriteLine("7.Exit");// خروج
+    Console.WriteLine();
+    Console.Write("Please choos an option:  ");
+    var option = Console.ReadLine();// ورودی از کاربر میگیرد که که بر اساس ان به کدام قسمت برویم
+    if (option == "7")
+    { break; }// برای خروج از برنامه است 
+    if (option != "1" && option != "2" && option != "3" && option != "4" && option != "5" &&
+        option != "+" && option != "-" && option != "*" && option != "/" && option != "%" &&
+        option != "6")
+    {
+        Console.WriteLine("Your choose invalide option,now press any key to return");
+        Console.ReadKey();
+        continue;
+    } // این بخش برای این است که اگر کاربر حروف یا اعدادی داد که در برنامه تعریف نشده بود به کاربر اطلاع دهد و دوباره برنامه را اجرا کند
+    if (option == "6")
+    {
+        Console.Write("Enter your number: ");// عدد را از کاربر میگیرد برای محاسبه ی فاکتوریل
+        int number = int.Parse(Console.ReadLine());// عدد را از کاربر میگیرد و تبدیل اینت میکند 
+        int result = 1 ;
+        Console.Write($"{number}!= ");
+        for (int counter = 1 ; counter <= number ; counter++)// متغیر ما برابر یک است و حلقه تا زمانی ادامه پیدا میکند که متغیر کوچکتر مساوی عدد ورودی کاربر باشد و در هر تکرار به متغیر ما یکی اضافه میکند 
+        {
+            result *= counter;
+            Console.Write(counter);
+            if(counter<number)
+            { Console.Write("*");// این قسمت برای این است که نحوه ی نوشتن عملیات ها درست اجرا شود
+            }
+        }
+        Console.WriteLine($" = {result} ");// بخش نهایی و کامل عملیات را با جواب چاپ میکند
+        Console.WriteLine("now press any key to return");
+        Console.ReadLine();
+        continue;// برای برگشتن به منو و شروع دوباره ی برنامه است
+    }
+    Console.Write("first number: ");
+    var number1 = decimal.Parse(Console.ReadLine());
+    Console.Write("second number: ");
+    var number2 = decimal.Parse(Console.ReadLine());// این بخش دو عدد از کاربر میگیرد و انها را به دسیمال تبدیل میکند
+    switch (option)// این دستور برای خوانایی بهتر کد ها استفاده شده و عملیات ها درون ان قرار گرفته است 
+    {
+        case "1":
+        case "+":
+            Console.WriteLine($" {number1} + {number2} = {number1 + number2} ");// بخش اول است که دو عدد را حمع میکند
+            break;
+        case "2":
+        case "-":
+            Console.WriteLine($" {number1} - {number2} = {number1 - number2} ");// بخش دوم است که دو عدد را منها میکند
+            break;
+        case "3":
+        case "*":
+            Console.WriteLine($" {number1} * {number2} = {number1 * number2} ");//بخش سوم است که دو عدد را ضرب میکند
+            break;
+        case "4":
+        case "/":
+            if (number1 == 0 || number2 == 0)//بخش چهارم تقسیم است و چون تقسیم بر صفر در کامپیوتر انجام نمیشود و ارور میدهد اگر کاربر از ان استفاده کند از ادامه ی برنامه جلوگیری میشود
+            {
+                Console.WriteLine("cannot divide by zero!now press any key to return");
+                Console.ReadKey();
+                continue;
+            }
+            Console.WriteLine($" {number1} / {number2} = {number1 / number2} ");
+            break;
+        case "5":
+        case "%":
+            Console.WriteLine($"% \t {number1} AND {number2} = {number1 % number2}");//بخش پنجم است که باقیمانده ی تقسیم دو عدد بر یکدیگر را محاسبه میکند
+            break;
+    }
+    Console.WriteLine("now press any key to return");
+    Console.ReadKey();
+    continue;
+}
