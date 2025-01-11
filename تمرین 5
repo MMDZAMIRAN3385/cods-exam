@@ -1,0 +1,25 @@
+while (true)//برای تکرار چندین باره ی برنامه بدون خروج از آن
+{
+    Console.Clear();//کد هارا در ابتدای شروع هر بار برنامه پاک میکند تا صفحه شلوغ نشود
+    Console.Write("Enter first side: ");//ضلع اول مثلث را میگیرد
+    int a = int.Parse(Console.ReadLine());
+    Console.Write("Enter second side: ");// ضلع دوم مثلث را میگیرد
+    int b = int.Parse(Console.ReadLine());
+    Console.Write("Enter third side: ");// ضلع سوم مثلث را میگیرد
+    int c = int.Parse(Console.ReadLine());
+    if ((a * a + b * b == c * c) || (a * a + c * c == b * b) || (b * b + c * c == a * a))//معادلات فیثاغورث برای پیدا کردن مثلث قائم الزاویه که یکی از آنها هم درست باشد مثلث قابل تایید است
+    {
+        Console.WriteLine("its true");
+    }
+    else//اگر همه ی شروط برقرار نباشد این بخش اجرا میشود
+    {
+        Console.WriteLine("its wrong");
+    }
+    Console.WriteLine("if you want to do it again press any key twice");
+    Console.WriteLine("if you want to exit write 1 and press enter");
+    var EXIT = Console.ReadLine();//وروردی اخر را از کاربر میگیرد که مشخص میکند میخواهد برنامه را ببندد یا دوباره اجرا کند
+    if (EXIT == "1")
+    { break; }//این دستور برنامه را میبندد اگر شرطش برقرار باشد
+    Console.ReadKey();
+    continue;//اگر شرط بالا برقرار نشد با این دستور به اول حلقه برمیگردیم و دوباره برنامه اجرا میشود
+}
