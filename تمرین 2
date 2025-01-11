@@ -1,0 +1,23 @@
+while (true)
+{
+    Console.Clear();
+
+    Console.Write("how many numbers: ");
+    decimal total = decimal.Parse(Console.ReadLine());
+    decimal sum = 0;
+    for (decimal i = 0; i < total; i++)
+    {
+        Console.Write($"enter number{i + 1}: ");
+        decimal numbers = decimal.Parse(Console.ReadLine());
+        sum += numbers;
+    }
+    Console.WriteLine($"sum of numbers is:{sum} ");
+    Console.WriteLine($"average if numbers is:{sum / total} ");
+    Console.WriteLine("if you want to continue press any twice");
+    Console.WriteLine("if you want to EXIT write 1 and press enter ");
+    var EXIT = Console.ReadLine();
+    if (EXIT=="1")
+    { break; }
+    Console.ReadKey();
+    continue;
+}
