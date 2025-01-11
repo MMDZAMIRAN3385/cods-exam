@@ -1,0 +1,29 @@
+while (true)// برای تکرار مجدد برنامه بدون خروج از آن
+{
+    Console.Clear();//برای پاکسازی متن ها در اجرای هر بار برنامه
+    Console.Write("enter your password: ");
+    var Passworsd = Console.ReadLine();
+    bool lenght = Passworsd.Length >= 8;// داده های بولین تعریف میکنیم که مقدار کاراکتر ها باید بیشتر از هشت باشد
+    bool Up = false;
+    bool Lower = false;
+    bool Numers = false;
+    foreach (var x in Passworsd)//مقادیر پسوورد که توسط کاربر داده شده است را درون ایکس گذاشته برای بررسی شروط
+    {
+        if (char.IsUpper(x))
+        { Up = true; }
+        else if (char.IsLower(x))
+        {  Lower = true; }  
+        else if (char.IsNumber(x))
+        { Numers = true; }// شروط قوی بودن این است که ورودی حداقل هشت کاراکتر باشد ،حروف بزرگ و کوچک داشته باشد و اعداد در ان بکار رفته باشد
+    }
+    if (lenght && Up && Lower && Numers)//اگر همه ی اینها برقرار باشد شرط اجرا میشود
+    { Console.WriteLine("your password is strong!"); }//اگر شرط برقرار باشد این جمله چاپ میشود
+    else { Console.WriteLine("your password is weak!"); }//اگر یکی هم برقرار نباشد شرط اجرا نمیشود و این جمله چاپ میشود
+    Console.WriteLine("now press any key twice to take another password");
+    Console.WriteLine("if you want to Exit write 1 and press enter");//در پایان برنامه چاپ میشود که بستگی به کاربر دارد که میخواهد خارج شود یا دوباره برنامه را اجرا کند 
+    var EXIT= Console.ReadLine();//یک وروردی از از کاربر میگیرد که مشخص میکند میخواهد ادامه دهد یا خیر
+    if (EXIT =="1")// اگر وروردی کاربر یک بود شرط اجرا میشود
+    { break; }// با این دستور از برنامه خارج میشویم
+    Console.ReadKey();
+    continue;//اگر شرط بالا برای خروج برقرار نشد با این دستور به ابتدای برنامه برای شروع دوباره میرویم
+}
